@@ -14,7 +14,7 @@ public class BILAutonomousRed extends BILAutonomousCommon
     @Override public void runOpMode() throws InterruptedException {
         boolean rightMovement = false;
         boolean leftMovement = false;
-        
+
         robot.init(hardwareMap);
 
         robot.colorSensor.enableLed(true);
@@ -41,20 +41,28 @@ public class BILAutonomousRed extends BILAutonomousCommon
 //            leftMovement = true;
 //        }
 
+
         Color left = detectLeft();
+
+        if(left == RED) {
+            setDriveMotors(0.5,0.5,-0.5,-0.5);
+        } else if(left == BLUE) {
+            setDriveMotors(-0.5,-0.5,0.5,0.5);
+        }
 
         time.reset();
 
         delay(250);
 
         setAllDriveMotors(0);
+
         robot.jewelArm.setPosition(robot.jewelArmStartPosition);
 
         delay(500);
 
-        if(left == RED) {
+        if(left == BLUE) {
             setDriveMotors(-0.5,-0.5,0.5,0.5);
-        } else if(left == BLUE) {
+        } else if(left == RED) {
             setDriveMotors(0.5,0.5,-0.5,-0.5);
         }
 
