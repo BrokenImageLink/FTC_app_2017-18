@@ -6,6 +6,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
+import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Color.*;
+
 @Autonomous(name="BIL: Autonomous Red", group="BIL")
 public class BILAutonomousRed extends BILAutonomousCommon
 {
@@ -29,15 +31,17 @@ public class BILAutonomousRed extends BILAutonomousCommon
         telemetry.addData("Blue", robot.colorSensor.blue());
         telemetry.update();
 
-        if(robot.colorSensor.red() > robot.colorSensor.blue()){ //left side red
+//        if(robot.colorSensor.red() > robot.colorSensor.blue()){ //left side red
+//
+//            setDriveMotors(0.5, 0.5, -0.5, -0.5);
+//            rightMovement = true;
+//        } else if(robot.colorSensor.blue() > robot.colorSensor.red()) { //right side is red
+//
+//            setDriveMotors(-0.5, -0.5, 0.5, 0.5);
+//            leftMovement = true;
+//        }
 
-            setDriveMotors(0.5, 0.5, -0.5, -0.5);
-            rightMovement = true;
-        } else if(robot.colorSensor.blue() > robot.colorSensor.red()) { //right side is red
-
-            setDriveMotors(-0.5, -0.5, 0.5, 0.5);
-            leftMovement = true;
-        }
+        Color left = detectLeft();
 
         time.reset();
 
@@ -48,9 +52,9 @@ public class BILAutonomousRed extends BILAutonomousCommon
 
         delay(500);
 
-        if(rightMovement == true) {
+        if(left == RED) {
             setDriveMotors(-0.5,-0.5,0.5,0.5);
-        } else if(leftMovement == true) {
+        } else if(left == BLUE) {
             setDriveMotors(0.5,0.5,-0.5,-0.5);
         }
 
