@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Color.*;
 
-@Autonomous(name="BIL: Autonomous Red", group="BIL")
+@Autonomous(name="BIL: Autonomous Blue", group="BIL")
 public class BILAutonomousBlue extends BILAutonomousCommon
 {
     @Override public void runOpMode() throws InterruptedException {

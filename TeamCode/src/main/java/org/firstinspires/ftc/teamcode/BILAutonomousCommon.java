@@ -371,11 +371,13 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
             }
         }
 
+        jDetector.disable();
+
         return left;
     }
 
     public void parkSafe(boolean leftPos) {
-        cDetector.disable();
+        cDetector.enable();
 
         setAllDriveMotors(-0.5);
         delay(3000);
@@ -398,8 +400,6 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
     }
 
     public void cryptoAllign() {
-        cDetector.enable();
-
         if (cDetector.getCryptoBoxCenterPosition() > 175) {
             setDriveMotors(-0.5, 0.5, 0.5, -0.5);
         } else {
@@ -409,8 +409,6 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
         delay(250);
 
         setAllDriveMotors(0);
-
-        cDetector.disable();
     }
 
     /**
