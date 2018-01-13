@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.disnodeteam.dogecv.CameraViewDisplay;
+import com.disnodeteam.dogecv.detectors.CryptoboxDetector;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -361,6 +362,42 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
         }
 
         return left;
+    }
+
+    public void parkSafe(boolean leftPos) {
+        if(leftPos == true) {
+            setDriveMotors(-0.5,-0.5,0.5,0.5);
+        } else {
+            setDriveMotors(-0.5, -0.5, -0.5, -0.5);
+        }
+
+        CryptoboxDetector detector = new CryptoboxDetector();
+
+        while(detector.isCryptoBoxDetected() == false) {
+            delay(1);
+        }
+
+        cryptoAllign();
+
+    }
+
+    public void cryptoAllign() {
+        CryptoboxDetector detector = new CryptoboxDetector();
+
+        detector.init(hardwareMap.appContext, CameraViewDisplay.getInstance());
+        detector.enable();
+
+        if (detector.getCryptoBoxCenterPosition() > 175) {
+            setDriveMotors(-0.5, 0.5, 0.5, -0.5);
+        } else {
+            setDriveMotors(0.5, -0.5, -0.5, 0.5);
+        }
+
+        time.reset();
+
+        delay(250);
+
+        setAllDriveMotors(0);
     }
 
     /**
