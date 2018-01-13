@@ -16,6 +16,7 @@ public class BILAutonomousRed extends BILAutonomousCommon
         boolean leftMovement = false;
 
         robot.init(hardwareMap);
+        loadObjects();
 
         robot.colorSensor.enableLed(true);
 
@@ -60,9 +61,9 @@ public class BILAutonomousRed extends BILAutonomousCommon
 
         delay(500);
 
-        if(left == BLUE) {
+        if(left == RED) {
             setDriveMotors(-0.5,-0.5,0.5,0.5);
-        } else if(left == RED) {
+        } else if(left == BLUE) {
             setDriveMotors(0.5,0.5,-0.5,-0.5);
         }
 
@@ -75,6 +76,6 @@ public class BILAutonomousRed extends BILAutonomousCommon
 
         delay(2000);
 
-        parkSafe();
+        //parkSafe(false);
     }
 }
