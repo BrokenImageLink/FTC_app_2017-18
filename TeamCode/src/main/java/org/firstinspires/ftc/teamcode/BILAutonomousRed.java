@@ -76,6 +76,6 @@ public class BILAutonomousRed extends BILAutonomousCommon
 
         delay(2000);
 
-        //parkSafe(false);
+        parkSafe(false);
     }
 }
