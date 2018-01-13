@@ -2,6 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
+import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Color.BLUE;
+import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Color.RED;
+
 
 /**
  * Created by lpane on 12/19/2017.
@@ -28,12 +31,12 @@ public class BILJewelBlue extends BILAutonomousCommon {
         telemetry.addData("Blue", robot.colorSensor.blue());
         telemetry.update();
 
-        if(robot.colorSensor.red() > robot.colorSensor.blue()){ //left side red
+        Color left = detectLeft();
 
-            setDriveMotors(-0.5, -0.5, 0.5, 0.5);
-        } else if(robot.colorSensor.blue() > robot.colorSensor.red()) { //right side is red
-
-            setDriveMotors(0.5, 0.5, -0.5, -0.5);
+        if(left == BLUE) {
+            setDriveMotors(0.5,0.5,-0.5,-0.5);
+        } else if(left == RED) {
+            setDriveMotors(-0.5,-0.5,0.5,0.5);
         }
 
         time.reset();
@@ -41,11 +44,23 @@ public class BILJewelBlue extends BILAutonomousCommon {
         delay(250);
 
         setAllDriveMotors(0);
-        robot.jewelArm.setPosition(robot.jewelArmStartPosition);
+
+        robot.jewelArm.setPosition(0.5);
 
         delay(500);
 
-        setDriveMotors(-0.5, 0.5, 0.5, -0.5);
+        if(left == BLUE) {
+            setDriveMotors(-0.5,-0.5,0.5,0.5);
+        } else if(left == RED) {
+            setDriveMotors(0.5,0.5,-0.5,-0.5);
+        }
+
+        time.reset();
+
+        delay(250);
+
+        setAllDriveMotors(0);
+        //setDriveMotors(0.5, -0.5, -0.5, 0.5);
 
         delay(2000);
     }

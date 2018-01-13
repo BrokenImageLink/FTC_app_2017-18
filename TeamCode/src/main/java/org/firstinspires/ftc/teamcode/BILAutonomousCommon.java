@@ -379,7 +379,7 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
     public void parkSafe(boolean leftPos) {
         cDetector.enable();
 
-        setAllDriveMotors(-0.5);
+        setAllDriveMotors(0.5);
         delay(3000);
 
         setDriveMotors(-0.5,0.5,0.5,-0.5);
@@ -388,7 +388,7 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
             delay(1);
         }
 
-        cryptoAllign();
+        cryptoAlign();
 
         if(!leftPos) {
             setAllDriveMotors(0.5);
@@ -399,7 +399,7 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
         cDetector.disable();
     }
 
-    public void cryptoAllign() {
+    public void cryptoAlign() {
         if (cDetector.getCryptoBoxCenterPosition() > 175) {
             setDriveMotors(-0.5, 0.5, 0.5, -0.5);
         } else {
@@ -407,6 +407,26 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
         }
 
         delay(250);
+
+        setAllDriveMotors(0);
+    }
+
+    public void parkSimple(Color teamColor) {
+        if(teamColor == Color.RED) {
+            setDriveMotors(0.5, 0.5, -0.5, -0.5);
+        } else if(teamColor == Color.BLUE) {
+            setDriveMotors(-0.5, -0.5, 0.5, 0.5);
+        }
+
+        delay(500);
+
+        setAllDriveMotors(0);
+
+        delay(1000);
+
+        setAllDriveMotors(0.5);
+
+        delay(1000);
 
         setAllDriveMotors(0);
     }

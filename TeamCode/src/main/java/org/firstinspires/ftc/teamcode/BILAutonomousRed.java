@@ -51,8 +51,6 @@ public class BILAutonomousRed extends BILAutonomousCommon
             setDriveMotors(-0.5,-0.5,0.5,0.5);
         }
 
-        time.reset();
-
         delay(250);
 
         setAllDriveMotors(0);
@@ -67,8 +65,6 @@ public class BILAutonomousRed extends BILAutonomousCommon
             setDriveMotors(0.5,0.5,-0.5,-0.5);
         }
 
-        time.reset();
-
         delay(250);
 
         setAllDriveMotors(0);
@@ -76,6 +72,7 @@ public class BILAutonomousRed extends BILAutonomousCommon
 
         delay(2000);
 
-        parkSafe(false);
+        //parkSafe(false);
+        parkSimple(RED);
     }
 }
