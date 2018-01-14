@@ -84,6 +84,7 @@ public class BILEncoderTest extends BILAutonomousCommon {
         time.reset();
         while(time.milliseconds() < milliseconds && !isStopRequested()){
             telemetry.addData(caption, val);
+            telemetry.update();
             idle();
         }
     }
