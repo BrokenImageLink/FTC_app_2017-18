@@ -57,11 +57,12 @@ public class BILAutonomousRed extends BILAutonomousCommon
 
         robot.jewelArm.setPosition(0.5);
 
+
         delay(500);
 
-        if(left == RED) {
+        if(left == BLUE) {
             setDriveMotors(-0.5,-0.5,0.5,0.5);
-        } else if(left == BLUE) {
+        } else if(left == RED) {
             setDriveMotors(0.5,0.5,-0.5,-0.5);
         }
 
