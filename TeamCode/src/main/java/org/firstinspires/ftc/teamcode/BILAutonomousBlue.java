@@ -51,8 +51,6 @@ public class BILAutonomousBlue extends BILAutonomousCommon
             setDriveMotors(-0.5,-0.5,0.5,0.5);
         }
 
-        time.reset();
-
         delay(250);
 
         setAllDriveMotors(0);
@@ -66,8 +64,6 @@ public class BILAutonomousBlue extends BILAutonomousCommon
         } else if(left == RED) {
             setDriveMotors(0.5,0.5,-0.5,-0.5);
         }
-
-        time.reset();
 
         delay(250);
 
