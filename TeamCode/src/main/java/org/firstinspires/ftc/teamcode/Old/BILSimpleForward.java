@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.Old;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
@@ -8,6 +10,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by nill on 1/7/16.
  */
+@Autonomous(name="Simple Forward", group="Old")
+@Disabled
 public class BILSimpleForward extends OpMode
 {
     DcMotor motorRight;

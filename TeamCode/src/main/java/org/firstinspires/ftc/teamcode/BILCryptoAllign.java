@@ -9,7 +9,7 @@ import com.disnodeteam.dogecv.detectors.CryptoboxDetector;
  */
 
 
-@Autonomous(name = "BIL: Cryptobox Automatic Allignment")
+@Autonomous(name="Cryptobox Align", group="BIL")
 public class BILCryptoAllign extends BILAutonomousCommon {
 
     @Override public void runOpMode() throws InterruptedException {

@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.teamcode.Old;
 
-
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by nill on 11/19/15.
  */
+@Autonomous(name="Encoder Autonomous Right", group="Old")
+@Disabled
 public class BILEncoderAutonomousRight extends BILAutonomousCommon2015
 {
     //DcMotor motorRight;

@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.LightSensor;
  * Created by mikab_000 on 11/27/2016.
  */
 
-@Autonomous(name="BIL: Light Sensor Test", group="BIL")
+@Autonomous(name="Light Sensor Test", group="Test")
 public class BILLightSensorTest extends LinearOpMode {
 
     LightSensor lightSensor;

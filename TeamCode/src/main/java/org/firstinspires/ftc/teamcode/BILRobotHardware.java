@@ -91,10 +91,10 @@ public class BILRobotHardware {
         motorLift.setPower(0);
 
         // Set all motors to run with encoders.
-       // motorFrontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-       // motorBackRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-       // motorFrontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-       // motorBackLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorFrontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorBackRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorFrontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motorBackLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Set all motors to brake when set to zero power.
         motorFrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

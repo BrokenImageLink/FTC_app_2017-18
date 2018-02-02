@@ -9,7 +9,7 @@ import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Color.*;
  * Created by lpane on 12/19/2017.
  */
 
-@Autonomous(name="BIL: Jewel Red", group="BIL")
+@Autonomous(name="Jewel Red", group="BIL")
 public class BILJewelRed extends BILAutonomousCommon{
 
     @Override public void runOpMode() throws InterruptedException {

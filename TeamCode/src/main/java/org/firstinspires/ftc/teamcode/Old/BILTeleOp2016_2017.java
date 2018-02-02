@@ -45,7 +45,7 @@ import org.firstinspires.ftc.teamcode.Old.BILRobotHardware2016_2017;
  * Enables control of the robot via the gamepad
  */
 
-@TeleOp(name="BIL: Teleop2016_2017", group="BIL")
+@TeleOp(name="Teleop2016_2017", group="Old")
 @Disabled
 public class BILTeleOp2016_2017 extends OpMode {
 

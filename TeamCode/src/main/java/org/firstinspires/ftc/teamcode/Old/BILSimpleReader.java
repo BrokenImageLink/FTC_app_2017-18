@@ -1,16 +1,16 @@
 package org.firstinspires.ftc.teamcode.Old;
 
-import android.os.DropBoxManager;
-
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
-import java.util.Map.Entry;
-import java.util.Set;
 
 /**
  * Created by nill on 12/29/15.
  */
+@Autonomous(name="Simple Reader", group="Old")
+@Disabled
 public class BILSimpleReader extends OpMode
 {
    //  DcMotorController.DeviceMode devMode;

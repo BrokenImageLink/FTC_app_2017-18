@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.BILAutonomousCommon;
 /**
  * Created by mikab_000 on 10/20/2016.
  */
-@Autonomous(name="BIL: Cap Ball", group="BIL")
+@Autonomous(name="Cap Ball", group="Old")
 @Disabled
 public class BILCapBall extends BILAutonomousCommon {
 

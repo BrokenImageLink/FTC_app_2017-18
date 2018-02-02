@@ -1,30 +1,23 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Old;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.vuforia.HINT;
-import com.vuforia.Vuforia;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
-import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
 import org.firstinspires.ftc.robotcore.external.matrices.VectorF;
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
-import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.firstinspires.ftc.teamcode.BILAutonomousCommon;
+import org.firstinspires.ftc.teamcode.BILVuforiaCommon;
 
 /**
  * Created by mikab_000 on 11/3/2016.
  */
 
-@Autonomous(name="BIL: Vuforia Image Recognition", group="BIL")
+@Autonomous(name="Vuforia Image Recognition", group="Old")
+@Disabled
 public class BILVuforiaImageRecognition extends BILAutonomousCommon {
 
     VuforiaLocalizer vuforia;

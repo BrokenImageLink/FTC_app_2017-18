@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created on 11/12/2016  by Mika.
  */
-@Autonomous(name="BIL: Red Beacons", group="BIL")
+@Autonomous(name="Red Beacons", group="Old")
 @Disabled
 public class BILVuforiaRedBeacons extends BILAutonomousCommon {
 

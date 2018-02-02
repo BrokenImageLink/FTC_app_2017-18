@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Old;
 
-// import org.firstinspires.ftc.robotcontroller.internal.testcode.FtcRobotControllerActivity;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import java.io.ByteArrayOutputStream;
 
@@ -17,6 +18,9 @@ import android.util.Log;
  * <p>
  *Enables control of the robot via the gamepad
  */
+
+@Autonomous(name="Camera Test", group="Test")
+@Disabled
 public class BILCameraOp extends OpMode {
     private Camera camera;
     public BILCameraPreview preview;

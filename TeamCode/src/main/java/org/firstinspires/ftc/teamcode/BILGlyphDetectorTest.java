@@ -1,21 +1,16 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
 import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.detectors.*;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import java.io.IOException;
 
 /**
  * Created by mikab_000 on 1/5/2018.
  */
 
-@TeleOp(name="BIL: Glyph Detector Test", group="BIL")
+@Autonomous(name="Glyph Detector Test", group="Test")
 public class BILGlyphDetectorTest extends OpMode
 {
     // Declare OpMode members.

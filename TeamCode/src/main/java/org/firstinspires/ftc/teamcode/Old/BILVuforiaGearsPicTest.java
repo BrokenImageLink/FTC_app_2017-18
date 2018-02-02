@@ -1,17 +1,22 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Old;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.matrices.VectorF;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
+import org.firstinspires.ftc.teamcode.BILAutonomousCommon;
+import org.firstinspires.ftc.teamcode.BILRobotHardware;
+import org.firstinspires.ftc.teamcode.BILVuforiaCommon;
 
 /**
  * Created on 12/31/2016 by Mika.
  */
-@Autonomous(name="BIL: Gears Tracking Test", group="BIL")
+@Autonomous(name="Gears Tracking Test", group="Test")
+@Disabled
 public class BILVuforiaGearsPicTest extends BILAutonomousCommon {
 
     VuforiaLocalizer vuforia;

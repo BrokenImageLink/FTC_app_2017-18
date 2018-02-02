@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 /**
  * Created by mikab_000 on 11/29/2016.
  */
-@Autonomous(name="BIL: Color Sensor Test", group="BIL")
+@Autonomous(name="Color Sensor Test", group="Test")
 public class BILColorSensorTest extends LinearOpMode{
 
     ColorSensor colorSensor;

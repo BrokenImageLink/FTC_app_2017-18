@@ -7,31 +7,31 @@ import org.firstinspires.ftc.teamcode.BILAutonomousCommon;
 /**
  * Made by Zoha Peterson on 12/31/16.
  */
-@Autonomous(name="BIL: Light Sensor Drive Test", group="BIL")
-    public class BILLightSensorDriveTest extends BILAutonomousCommon {
+@Autonomous(name="Light Sensor Drive Test", group="Test")
+public class BILLightSensorDriveTest extends BILAutonomousCommon {
 
-        @Override
-        public void runOpMode() throws InterruptedException {
+    @Override
+    public void runOpMode() throws InterruptedException {
 
-            robot.init(hardwareMap);
-            robot.lightSensor.enableLed(true);
+        robot.init(hardwareMap);
+        robot.lightSensor.enableLed(true);
 
-            double darkFloorValue = robot.lightSensor.getLightDetected();
-            while(!isStarted()) {
-                darkFloorValue = (darkFloorValue + robot.lightSensor.getLightDetected())/2;
+        double darkFloorValue = robot.lightSensor.getLightDetected();
+        while(!isStarted()) {
+            darkFloorValue = (darkFloorValue + robot.lightSensor.getLightDetected())/2;
 
-                //continuously calibrate gyro to keep the heading as accurate as possible
-                if(!robot.gyroSensor.isCalibrating()){
-                    robot.gyroSensor.calibrate();
-                }
-
-                idle();
+            //continuously calibrate gyro to keep the heading as accurate as possible
+            if(!robot.gyroSensor.isCalibrating()){
+                robot.gyroSensor.calibrate();
             }
 
-//            waitForStart();
-            driveUntilLineOrDistance(0.5, 5);
-
-
+            idle();
         }
+
+//            waitForStart();
+        driveUntilLineOrDistance(0.5, 5);
+
+
     }
+}
 

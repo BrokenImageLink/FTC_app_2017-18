@@ -11,7 +11,7 @@ import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Color.RED;
  */
 
 
-@Autonomous(name="BIL: Jewel Blue", group="BIL")
+@Autonomous(name="Jewel Blue", group="BIL")
 public class BILJewelBlue extends BILAutonomousCommon {
 
     @Override public void runOpMode() throws InterruptedException {
