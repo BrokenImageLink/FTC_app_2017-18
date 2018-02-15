@@ -94,8 +94,8 @@ public class BILTeleOp extends OpMode {
 		// 1 is full right
 		// direction: left_stick_x ranges from -1 to 1, where -1 is full left
 		// and 1 is full right
-		throttleY = -gamepad1.left_stick_y;
-		throttleX = gamepad1.left_stick_x;
+		throttleX = -gamepad1.left_stick_y;
+		throttleY = gamepad1.left_stick_x;
 		turning = gamepad1.right_stick_x;
 		liftSpeed = -gamepad2.left_stick_y;
 	}
