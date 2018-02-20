@@ -126,7 +126,7 @@ public class BILTeleOp extends OpMode {
 		throttleY = bilTeleOpJoystick.normalizeSpeed(throttleY, expo, maxSpeed);
 		throttleX = bilTeleOpJoystick.normalizeSpeed(throttleX, expo, maxSpeed);
 		turning = bilTeleOpJoystick.normalizeSpeed(turning, expo, maxSpeed);
-		relicExtend = bilTeleOpJoystick.normalizeSpeed(relicExtend, expo, maxSpeed)
+		relicExtend = bilTeleOpJoystick.normalizeSpeed(relicExtend, expo, maxSpeed);
 		//liftSpeed = bilTeleOpJoystick.normalizeSpeed(liftSpeed, 2.0, maxSpeed);
 	}
 
