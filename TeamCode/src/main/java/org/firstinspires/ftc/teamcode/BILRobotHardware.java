@@ -29,6 +29,11 @@ public class BILRobotHardware {
     public double pusherLeft = 0.80;
     public double pusherMiddle = 0.45;
     public double pusherRight = 0.10;
+    public DcMotor glyphGatherer;
+    public Servo liftPitch;
+    public Servo relicGrab;
+    public Servo relicExtend;
+    public Servo relicDeploy;
 
     public double liftHolderStart = 0.2;
     public int liftHolderRelease = 1;

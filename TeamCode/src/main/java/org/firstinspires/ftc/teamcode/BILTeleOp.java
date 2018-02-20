@@ -24,9 +24,17 @@ public class BILTeleOp extends OpMode {
 	double throttleX;
 	double turning;
 	double liftSpeed;
-	double rightGripper;
-	double leftGripper;
+//	double rightGripper;
+//	double leftGripper;
 	double jewelArm;
+	double glyphGatherer;
+	double relicExtend;
+
+	double extendRecoverer;
+
+	double liftPitch = robot.liftPitch.getPosition();
+
+	double expo;
 
 	boolean directionRobot = true;
 	double maxSpeed = 0.7;
@@ -40,7 +48,7 @@ public class BILTeleOp extends OpMode {
 
 	/*
 	 * Code to run when the op mode is first enabled goes here
-	 * 
+	 *
 	 * @see com.qualcomm.robotcore.eventloop.opmode.OpMode#start()
 	 */
 	@Override
@@ -52,7 +60,7 @@ public class BILTeleOp extends OpMode {
 
 	/*
 	 * This method will be called repeatedly in a loop
-	 * 
+	 *
 	 * @see com.qualcomm.robotcore.eventloop.opmode.OpMode#run()
 	 */
 	@Override
@@ -61,7 +69,10 @@ public class BILTeleOp extends OpMode {
 
 		scaleJoystickInput();
 
+		getGamepadInputs();
+
 		setMotorSpeeds();
+
 
 		//setPusher();
         setGrippers();
@@ -79,7 +90,7 @@ public class BILTeleOp extends OpMode {
 
 	/*
 	 * Code to run when the op mode is first disabled goes here
-	 * 
+	 *
 	 * @see com.qualcomm.robotcore.eventloop.opmode.OpMode#stop()
 	 */
 	@Override
@@ -97,16 +108,26 @@ public class BILTeleOp extends OpMode {
 		throttleX = -gamepad1.left_stick_y;
 		throttleY = gamepad1.left_stick_x;
 		turning = gamepad1.right_stick_x;
-		liftSpeed = -gamepad2.left_stick_y;
+		glyphGatherer = gamepad2.left_stick_y;
+		relicExtend = gamepad2.right_stick_x;
+
+		//liftSpeed = -gamepad2.left_stick_y;
 	}
 
 	protected void scaleJoystickInput() {
+	    if(gamepad1.left_trigger == 0.0) {
+	        expo = 2.0;
+        }
+	    else {
+	        expo = 1.1;
+	    }
 		// scale the joystick value to make it easier to control
 		// the robot more precisely at slower speeds.
-		throttleY = bilTeleOpJoystick.normalizeSpeed(throttleY, 2.0, maxSpeed);
-		throttleX = bilTeleOpJoystick.normalizeSpeed(throttleX, 2.0, maxSpeed);
-		turning = bilTeleOpJoystick.normalizeSpeed(turning, 2.0, maxSpeed);
-		liftSpeed = bilTeleOpJoystick.normalizeSpeed(liftSpeed, 2.0, maxSpeed);
+		throttleY = bilTeleOpJoystick.normalizeSpeed(throttleY, expo, maxSpeed);
+		throttleX = bilTeleOpJoystick.normalizeSpeed(throttleX, expo, maxSpeed);
+		turning = bilTeleOpJoystick.normalizeSpeed(turning, expo, maxSpeed);
+		relicExtend = bilTeleOpJoystick.normalizeSpeed(relicExtend, expo, maxSpeed)
+		//liftSpeed = bilTeleOpJoystick.normalizeSpeed(liftSpeed, 2.0, maxSpeed);
 	}
 
 	protected void getMeccanumMotorSpeeds(double leftX, double leftY, double rightX) {
@@ -129,7 +150,10 @@ public class BILTeleOp extends OpMode {
 		robot.motorBackLeft.setPower(backLeft);
 		robot.motorFrontRight.setPower(frontRight);
 		robot.motorBackRight.setPower(backRight);
-		robot.motorLift.setPower(-liftSpeed);
+		//robot.motorLift.setPower(-liftSpeed);
+		robot.glyphGatherer.setPower(glyphGatherer);
+		robot.relicExtend.setPosition(relicExtend);
+
 	}
 
 	protected void setGrippers() {
@@ -154,6 +178,18 @@ public class BILTeleOp extends OpMode {
     protected void setJewelArm() {
 		double jewelArmPosition = robot.jewelArm.getPosition();
 		robot.jewelArm.setPosition(1.0);
+	}
+
+	protected void getGamepadInputs() {
+		liftPitch = robot.liftPitch.getPosition();
+		if(gamepad2.dpad_left) robot.liftPitch.setPosition(liftPitch - .05);
+		if(gamepad2.dpad_right) robot.liftPitch.setPosition(liftPitch + .05);
+
+		if(gamepad2.dpad_up) liftSpeed = .5;
+		if(gamepad2.dpad_down) liftSpeed = -.5;
+
+		if(gamepad2.x) robot.relicDeploy.setPosition(0.0);
+		if(gamepad2.b) robot.relicDeploy.setPosition(1.0);
 	}
 
 	/*protected void setPusher() {
