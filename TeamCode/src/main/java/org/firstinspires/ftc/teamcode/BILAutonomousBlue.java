@@ -7,6 +7,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Color.*;
+import static org.firstinspires.ftc.teamcode.BILAutonomousCommon.Side.*;
 
 @Autonomous(name="Autonomous Blue", group="BIL")
 public class BILAutonomousBlue extends BILAutonomousCommon
@@ -32,43 +33,20 @@ public class BILAutonomousBlue extends BILAutonomousCommon
         telemetry.addData("Blue", robot.colorSensor.blue());
         telemetry.update();
 
-//        if(robot.colorSensor.red() > robot.colorSensor.blue()){ //left side red
-//
-//            setDriveMotors(0.5, 0.5, -0.5, -0.5);
-//            rightMovement = true;
-//        } else if(robot.colorSensor.blue() > robot.colorSensor.red()) { //right side is red
-//
-//            setDriveMotors(-0.5, -0.5, 0.5, 0.5);
-//            leftMovement = true;
-//        }
-
-
         Color left = detectLeft();
 
         if(left == BLUE) {
-            setDriveMotors(0.5,0.5,-0.5,-0.5);
+            knockJewelSide(LEFT);
         } else if(left == RED) {
-            setDriveMotors(-0.5,-0.5,0.5,0.5);
+            knockJewelSide(RIGHT);
         }
-
-        delay(250);
-
-        setAllDriveMotors(0);
-
-        robot.jewelArm.setPosition(0.5);
-
-        delay(500);
-
-        if(left == BLUE) {
-            setDriveMotors(-0.5,-0.5,0.5,0.5);
-        } else if(left == RED) {
-            setDriveMotors(0.5,0.5,-0.5,-0.5);
-        }
-
-        delay(250);
-
-        setAllDriveMotors(0);
         //setDriveMotors(0.5, -0.5, -0.5, 0.5);
+
+        /*
+        Side blockPos = detectImageSide();
+        driveToPos(blockPos);
+        //place block
+         */
 
         delay(2000);
 

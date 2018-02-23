@@ -63,7 +63,8 @@ public class BILRobotHardware {
         motorFrontLeft = hwMap.dcMotor.get("Left_Front");
         motorBackLeft = hwMap.dcMotor.get("Left_Back");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
-        motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotor.Direction.REVERSE
+                                   
         motorLift = hwMap.dcMotor.get("Lift");
         relicGrab = hwMap.servo.get("Relic_Claw");
         relicExtend = hwMap.servo.get("Relic_Extend");

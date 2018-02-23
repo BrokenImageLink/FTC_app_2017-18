@@ -38,6 +38,10 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
         RED, BLUE, UNKNOWN
     }
 
+    public enum Side {
+        LEFT, MIDDLE, RIGHT, UNKNOWN
+    }
+
     public final static int ticksPerRotation = 1440;
     public final static double wheelCircumference = (4 * Math.PI)/12; //circumference in feet
     public final static int driveTimeScalar = 3;
@@ -389,12 +393,47 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
         return left;
     }
 
-    public RelicRecoveryVuMark detectImageSide() {
+    public void knockJewelSide(Side side) {
+        //knock jewel
+        if(side == Side.LEFT) {
+            setDriveMotors(0.5,0.5,0.5,0.5);
+        } else if(side == Side.RIGHT) {
+            setDriveMotors(-0.5,-0.5,-0.5,-0.5);
+        }
+
+        delay(250);
+
+        //stop and lift arm
+        setAllDriveMotors(0);
+        robot.jewelArm.setPosition(0.5);
+
+        delay(500);
+
+        //go back
+        if(side == Side.LEFT) {
+            setDriveMotors(-0.5,-0.5,-0.5,-0.5);
+        } else if(side == Side.RIGHT) {
+            setDriveMotors(0.5,0.5,0.5,0.5);
+        }
+
+        delay(250);
+
+        setAllDriveMotors(0);
+    }
+
+    public Side detectImageSide() {
+        time.reset();
         RelicRecoveryVuMark position = RelicRecoveryVuMark.UNKNOWN;
 
         imageTargets.activate();
 
         while(opModeIsActive() && !isStopRequested() && position == RelicRecoveryVuMark.UNKNOWN) {
+
+            //if taking too long
+            if(time.milliseconds() > 5000){
+                return Side.UNKNOWN;
+            }
+
             position = RelicRecoveryVuMark.from(imageTemplate);
             if (position != RelicRecoveryVuMark.UNKNOWN) {
                 telemetry.addData("VuMark", "%s visible", position);
@@ -402,11 +441,22 @@ public abstract class BILAutonomousCommon extends LinearOpMode {
                 telemetry.addData("VuMark", "not visible");
             }
             telemetry.update();
+            idle();
         }
 
         imageTargets.deactivate();
 
-        return position;
+        if(position == RelicRecoveryVuMark.LEFT){
+            return Side.LEFT;
+        }else if(position == RelicRecoveryVuMark.CENTER){
+            return Side.MIDDLE;
+        }else{
+            return Side.RIGHT;
+        }
+    }
+
+    public void driveToPos(Side pos) {
+        //aligning, etc.
     }
 
     public void parkSafe(boolean leftPos) {

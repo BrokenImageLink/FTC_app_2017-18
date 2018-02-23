@@ -150,7 +150,9 @@ public class BILTeleOp extends OpMode {
 		robot.motorBackLeft.setPower(backLeft);
 		robot.motorFrontRight.setPower(frontRight);
 		robot.motorBackRight.setPower(backRight);
+    
 		robot.motorLift.setPower(-liftSpeed);
+
 		robot.glyphGatherer.setPower(glyphGatherer);
 		robot.relicExtend.setPosition(relicExtend);
 
