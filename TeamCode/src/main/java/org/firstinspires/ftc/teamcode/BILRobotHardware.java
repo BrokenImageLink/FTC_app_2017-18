@@ -64,12 +64,12 @@ public class BILRobotHardware {
         motorBackLeft = hwMap.dcMotor.get("Left_Back");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
         motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
-        motorLift = hwMap.dcMotor.get("lift");
+        motorLift = hwMap.dcMotor.get("Lift");
         relicGrab = hwMap.servo.get("Relic_Claw");
         relicExtend = hwMap.servo.get("Relic_Extend");
         liftPitch = hwMap.servo.get("Lift_Pitch");
-        glyphGatherer = hwMap.dcMotor.get("glyph_gatherer");
-        relicDeploy = hwMap.servo.get("relic_deploy");
+        glyphGatherer = hwMap.dcMotor.get("Glyph_gatherer");
+        relicDeploy = hwMap.servo.get("Relic_deploy");
 
         //Lift & Extender Motors
         //motorLift = hwMap.dcMotor.get("lift");
