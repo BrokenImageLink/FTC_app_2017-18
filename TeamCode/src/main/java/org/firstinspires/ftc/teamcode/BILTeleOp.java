@@ -32,7 +32,7 @@ public class BILTeleOp extends OpMode {
 
 	double extendRecoverer;
 
-	double liftPitch = robot.liftPitch.getPosition();
+	double liftPitch;
 
 	double expo;
 
