@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.LightSensor;
@@ -16,24 +17,22 @@ public class BILRobotHardware {
     public DcMotor motorBackRight;
     public DcMotor motorFrontLeft;
     public DcMotor motorBackLeft;
-    //public DcMotor motorLift;
     public DcMotor motorLift;
-    //public DcMotor relicExtender;
+
     public LightSensor lightSensor;
     public GyroSensor gyroSensor;
     public ColorSensor colorSensor;
-    //public Servo relicRecoverer;
-    public Servo jewelArm;
-    public Servo rightGrabber;
-    public Servo leftGrabber;
-    public double pusherLeft = 0.80;
-    public double pusherMiddle = 0.45;
-    public double pusherRight = 0.10;
-    public DcMotor glyphGatherer;
+
+    public DcMotor gatherRight;
+    public DcMotor gatherLeft;
     public Servo liftPitch;
-    public Servo relicGrab;
-    public Servo relicExtend;
-    public Servo relicDeploy;
+
+    //Compatibility
+    public Servo jewelArm;
+    public Servo leftGrabber;
+    public double pusherRight = 0;
+    public double pusherLeft = 0;
+    public double pusherMiddle = 0;
 
     public double liftHolderStart = 0.2;
     public int liftHolderRelease = 1;
@@ -64,35 +63,15 @@ public class BILRobotHardware {
         motorBackLeft = hwMap.dcMotor.get("Left_Back");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
         motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
-                                   
+
+        //Lift mechanisms
         motorLift = hwMap.dcMotor.get("Lift");
-        relicGrab = hwMap.servo.get("Relic_Claw");
-        relicExtend = hwMap.servo.get("Relic_Extend");
         liftPitch = hwMap.servo.get("Lift_Pitch");
-        glyphGatherer = hwMap.dcMotor.get("Glyph_gatherer");
-        relicDeploy = hwMap.servo.get("Relic_deploy");
 
-        //Lift & Extender Motors
-        //motorLift = hwMap.dcMotor.get("lift");
-        //relicExtender = hw.dcMotor.get("RelicExtender");
-
-        //Initialize Servos
-        //pusher = hwMap.servo.get("pusher");
-        //pusher.setPosition(pusherMiddle);
-        //relicRecoverer = hwMap.servo.get("RelicRecoverer");
-        jewelArm = hwMap.servo.get("JewelArm");
-        rightGrabber = hwMap.servo.get("Grabber_R");
-        leftGrabber = hwMap.servo.get("Grabber_L");
-        rightGrabber.setPosition(rightGripperMaxRight);
-        leftGrabber.setPosition(leftGripperMaxLeft);
-        jewelArm.setPosition(this.jewelArmStartPosition);
-
-        //Initialize sensors
-        lightSensor = hwMap.lightSensor.get("lightSensor");
-        colorSensor = hwMap.colorSensor.get("colorSensor");
-
-        //Initialize gyro and calibrate
-        gyroSensor = hwMap.gyroSensor.get("gyro");
+        //Glyph sweeper
+        gatherRight = hwMap.dcMotor.get("Glyph_Gatherer_Right");
+        gatherLeft = hwMap.dcMotor.get("Glyph_Gatherer_Left");
+        gatherLeft.setDirection(DcMotor.Direction.REVERSE);
 
         // Set all motors to zero power
         motorFrontLeft.setPower(0);
@@ -113,7 +92,5 @@ public class BILRobotHardware {
         motorFrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motorBackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motorLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-        jewelArm.setPosition(1.0);
     }
 }
